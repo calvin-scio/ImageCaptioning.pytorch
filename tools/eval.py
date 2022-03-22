@@ -93,7 +93,7 @@ if not opt.force:
 opt.vocab = vocab
 model = models.setup(opt)
 del opt.vocab
-model.load_state_dict(torch.load(opt.model, map_location='cpu'))
+model.load_state_dict(torch.load(opt.model, map_location='cpu'), strict=False)
 model.to(opt.device)
 model.eval()
 crit = losses.LanguageModelCriterion()
